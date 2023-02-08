@@ -1,0 +1,9 @@
+#!/bin/bash
+# testing compound comparisons
+
+if [ -d $HOME ] && [ -w $HOME/testing ]
+then
+  echo "The file existings and you can wirte it."
+else
+  echo "I cannot write to the file."
+fi 

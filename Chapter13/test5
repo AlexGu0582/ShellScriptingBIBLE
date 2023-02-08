@@ -1,0 +1,16 @@
+#!/bin/bash
+# reading values from a file
+
+file="state"
+
+for state in $(cat $file)
+do
+  echo "Visit beautiful $state"
+done
+
+$cat state
+Alabama
+Alaska
+Arizona
+Arkansas
+Colorado
