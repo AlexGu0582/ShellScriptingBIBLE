@@ -1,0 +1,15 @@
+#!/bin/bash
+#process new user accounts
+
+input="users.csv"
+while IFS=',' read -r userid name
+do
+    echo "adding $userid"
+    useradd -c "$name" -m $userid 
+done < "$input"
+
+
+$ cat users.csv 
+rich,Richard Blue
+barbara, Barbara Blum
+tim, Timothy Bresnahan
