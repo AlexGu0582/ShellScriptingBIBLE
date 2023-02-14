@@ -1,0 +1,14 @@
+#!/bin/bash
+# Testing parameters
+
+if [ $# -ne 2 ]
+then
+    echo
+    echo Usage: test9 a b 
+    echo
+elfi
+    total=$[ $1 + $2 ]
+    echo
+    echo The total is $total.
+    echo
+fi

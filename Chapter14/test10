@@ -1,0 +1,8 @@
+#!/bin/bash
+Grabbing the last parameter
+
+params=$#
+echo
+echo the last parameter is $params.
+echo The last parameter is ${ !# }
+echo
