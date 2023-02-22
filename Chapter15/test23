@@ -1,0 +1,11 @@
+#!/bin/bash
+# read file and create INSERT statements for MySQL
+
+outfile='members.sql'
+IFS=','
+while read line frame addrress city state zip
+do 
+    cat >> $output <<EOF
+    INSERT INO members (lname, fname, address, city, state, zip) values ('$lname, '$fame', '$address', '$city', '$state', '$zip';
+    EOF 
+done < ${1}
