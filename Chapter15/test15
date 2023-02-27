@@ -1,0 +1,8 @@
+#!/bin/bash
+# redirecting input file desctiptiors
+
+exec 6<&0
+
+exec 0< testfile
+
+count-1
