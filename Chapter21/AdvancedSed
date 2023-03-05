@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+$cat data1.txt
+This is the header line.
+
+This is a data line.
+
+This is the last line.
+
+$sed '/^$/d' data1.txt
+This is the header line.
+This is a data line.
+This is the last line.
+
+$sed '/header/{n ; d}' data1.txt
+This is the header line.
+This is a data line.
+
+This is the last line.
+
+$cat data2.txt
+This is the header line.
+This is the first data line.
+This is the second data line.
+This is the last line.
+
+$sed '/first/{ N ; s/\n/ / }' data2.txt 
+This is the header line.
+This is the first data line. This is the second data line.
+This is the last line.
+
+$cat data3.txt
+On Tuesday, the Linux System
+Administrator's group meeting will be held.
+All System Administrator should attend.
+Thank you for your 
+$sed 'N
+>s/System\nAdministrator/Desktop\nUser/
+>s/System Administrator/Desktop User/
+>' data3.txt 
+
+
+
