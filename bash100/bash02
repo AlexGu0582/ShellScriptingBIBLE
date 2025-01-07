@@ -1,0 +1,3 @@
+
+
+awk '{print $1}' bash02.log | sort | uniq -n -c

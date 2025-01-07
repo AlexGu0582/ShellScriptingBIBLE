@@ -1,0 +1,13 @@
+#!/bin/bash
+#awk '{print $1}' bash02.log | sort | uniq -c |sort -n -r
+
+# awk '{print $1}' bash02.log | sort | uniq -c | sort -n -r
+sum = 0
+
+for n in "ps aux | grep -v "Time CONNAVE" | awk '{print $6}'
+do
+	sum=$[sum + $n]
+done
+
+echo $sum
+"
