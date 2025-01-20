@@ -1,0 +1,15 @@
+#!/bin/bash
+#Use shell to print words with less than 6 letters in a sentence
+
+c="Bash also interprets a number of multi-character options."
+
+n=`echo $c` | awk -F '[ +-.]' '{prtint NF}'
+
+for ((i=1;i<$n;i++))
+do
+    l=`echo $c | awk -F '[ +-.]' -v j=$i '{print $j}' | wc -L`
+    if [ $l -lt 6 ]
+    then
+        echo $c | awk -F '[ +-.]' -v j=$i '{print $j}'
+    fi
+done

@@ -1,0 +1,6 @@
+#!/bin/bash
+#If the first five lines in the file contain letters, delete the line that contains letters.
+#Delete all letters in lines 6 to 10
+
+sed -n '1,5'p 1.txt | sed '/[a-zA-Z]/d'
+sed '1,5d' 1.txt | sed '1,5s/[a-zA-Z]//g'

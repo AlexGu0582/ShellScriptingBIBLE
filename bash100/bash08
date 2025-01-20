@@ -1,0 +1,26 @@
+#!/bin/bash
+#There is a LNMP is running on Server. We always got 502 error for website. Please write a monitor scripts to monitor the visit-log.
+#If the status code for website access is "502", restart php-fpm service
+log=/data/log/access.log
+
+while :
+do
+    502_n=`tail -n 300 $log | grep -c ' 502'`
+    if [ -z "$502_n" ]
+    then 
+        exit
+    fi
+
+    if [ $502_n -gt 100 ]
+    then 
+        /etc/init.d/php-fpm restart >/dev/null 2>/tmp/php-fpm.err
+        fpm_p_n=`pgrep -l php-fpm | wc -l`
+        if [ $fpm_p_n -eq 0 ]
+        then
+            python mail.py xx@xx.com "php-fpm failed to restart" "`head -1 /tmp/php-fpm.err`"
+            exit 
+        fi 
+    fi
+    
+    sleep 10
+done
